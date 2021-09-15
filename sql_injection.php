@@ -25,6 +25,9 @@ $db->exec("insert into members(username,password,age) values('bar','bar',33)");
 // hoge' or 1=1;--
 $sql = "select * from members where username = '" . $username . "' and password = '" . $password . "'";
 $res = $db->query($sql);
+
+//防止法情報
+//https://www.php.net/manual/ja/sqlite3.prepare.php
 ?>
 <!DOCTYPE html>
 <html>
