@@ -10,16 +10,16 @@
     <h1>Web脆弱性確認サイト</h1>
     <h1>XXS</h1>
     <form method="post" action="./xss.php">
-        ID:<input type="text" name="username" style="width: 400px;"/><br />
-        PW:<input type="text" name="password" style="width: 400px;"/><br />
+        ID:<input type="text" name="username" value="hoge" style="width: 400px;"/><br />
+        PW:<input type="text" name="password" value="hoge" style="width: 400px;"/><br />
         <input type="submit" value="ログイン" />
     </form>
     <hr/>
     <h1>SQL Injection</h1>
     <form method="post" action="./sql_injection.php">
-        ID:<input type="text" name="username" style="width: 400px;"/><br />
-        PW:<input type="text" name="password" style="width: 400px;"/><br />
-        <input type="submit" value="ログイン" />
+        ID:<input type="text" name="username" value="hoge" style="width: 400px;"/><br />
+        PW:<input type="text" name="password" value="hoge" style="width: 400px;"/><br />
+        <input type="submit" value="ログイン（マイページ）" />
     </form>
     <hr/>
     <h1>CSRF（もどき）</h1>
