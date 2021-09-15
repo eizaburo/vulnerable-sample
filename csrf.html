@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CSRF（もどき）Sample</title>
+</head>
+
+<body>
+    <h1>CSRF（もどき）</h1>
+    <h3>クリックだけの簡単応募</h3>
+    <button id="btn">1億円が当たるキャンペンに今すぐ応募する！</button><br />
+    <a href="index.html">戻る</a>
+    <script>
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            //購入リクエスト
+            fetch("./csrf.php", {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: encodeURI(`product_name=apple&price=300&amount=1000`)
+            })
+                .then((response) => {
+                    response.text()
+                        .then((text) => {
+                            // alert(text);
+                            alert("応募ありがとうございまし！");
+                        })
+                })
+                .catch((error) => {
+                    alert(error);
+                })
+        });
+    </script>
+</body>
+
+</html>
