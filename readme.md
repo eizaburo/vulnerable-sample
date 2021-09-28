@@ -12,3 +12,18 @@
 ## 備考
 
 * CSRFは別オリジンで行うべきですが、今回はSameオリジンです。
+
+## XXS
+
+IDに 下記を入れたりする。
+
+```
+<script>document.cookie="signedIn=true"</script>
+```
+
+## SQL Injection
+
+```
+hoge' or 1 = 1; --
+hoge' union select * from members;
+```
