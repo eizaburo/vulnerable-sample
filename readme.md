@@ -12,3 +12,26 @@
 ## 備考
 
 * CSRFは別オリジンで行うべきですが、今回はSameオリジンです。
+
+## 利用方法
+
+index.htmlとかがあるディレクトリでローカルサーバを実行。
+
+```
+php -S localhost:8888
+```
+
+## XXS
+
+IDに 下記を入れたりする。
+
+```
+<script>document.cookie="signedIn=true"</script>
+```
+
+## SQL Injection
+
+```
+hoge' or 1 = 1; --
+hoge' union select * from members;
+```
