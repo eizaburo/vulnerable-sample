@@ -7,19 +7,31 @@ $message = "...";
 
 //db準備
 $db = new SQLite3("test.db");
-//tableがあれば削除
+
+//membersテーブルがあれば削除
 $db->exec("drop table if exists members");
-//table作成
+//membersテーブルを作成
 $db->exec("create table members(
     id integer primary key autoincrement,
     username text,
     password text,
     age integer
 )");
-//ダミーデータ登録
+//membersテーブルにダミーデータ登録
 $db->exec("insert into members(username,password,age) values('hoge','hoge',11)");
 $db->exec("insert into members(username,password,age) values('foo','foo',22)");
 $db->exec("insert into members(username,password,age) values('bar','bar',33)");
+
+//shopテーブルがあれば削除
+$db->exec("drop table if exists shops");
+$db->exec("create table shops(
+    id integer primary key autoincrement,
+    shopname text,
+    address text
+)");
+$db->exec("insert into shops(shopname,address) values('Apple shop','Tokyo')");
+$db->exec("insert into shops(shopname,address) values('Orange shop','Osaka')");
+$db->exec("insert into shops(shopname,address) values('Grape shop','Yamanashi')");
 
 //認証+MyPage的機能
 // hoge' or 1=1;--
